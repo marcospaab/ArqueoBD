@@ -9,13 +9,17 @@ ArqueoBD es una aplicación web diseñada para la gestión y administración de 
 Actualmente, el proyecto se encuentra utilizando las siguientes tecnologías:
 
 **Spring Boot:** Framework para el desarrollo de aplicaciones backend en Java.
+
 **JPA (Java Persistence API):** Librería para la gestión de la persistencia de datos en la base de datos.
+
 **H2:** Base de datos en memoria para desarrollo y pruebas.
 
 2. **Futuras Mejoras**
 
 **Frontend:** Se implementará con Angular para crear una interfaz de usuario interactiva y dinámica.
+
 **Backend:** Se mantendrá con Spring Boot.
+
 **Base de Datos:** En el futuro se migrará a PostgreSQL para un entorno de producción más robusto y escalable.
 
 3. **Instalación y Ejecución**
@@ -41,7 +45,9 @@ Accede a la aplicación a través de tu navegador en:
 El proyecto está dividido en las siguientes secciones principales:
 
 **Backend:** Maneja la lógica del servidor y la interacción con la base de datos.
+
 **Base de Datos:** Usa H2 en memoria para pruebas.
+
 **Futuro Frontend:** Integrará Angular (próximamente).
 
 5. **Contacto**
