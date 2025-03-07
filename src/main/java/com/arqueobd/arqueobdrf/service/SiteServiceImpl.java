@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 //capa de servicio y logica a desarrollar
 @Service
@@ -53,5 +54,20 @@ public class SiteServiceImpl implements SiteService{
     @Override
     public void deleteSite(Long id) {
         siteRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Site> findSiteByWithJPQL(String name) {
+        return siteRepository.findSiteByNameWithJPQL(name);
+    }
+
+    @Override
+    public Optional<Site> findByName(String name) {
+        return siteRepository.findByName(name);
+    }
+
+    @Override
+    public Optional<Site> findByNameIgnoreCase(String name) {
+        return siteRepository.findByNameIgnoreCase(name);
     }
 }

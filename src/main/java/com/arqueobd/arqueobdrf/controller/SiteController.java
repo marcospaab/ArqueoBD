@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class SiteController {
@@ -37,5 +38,23 @@ public class SiteController {
     public String deleteSite(@PathVariable Long id){
         siteService.deleteSite(id);
         return "Registry successfully deleted";
+    }
+
+    //registro filtrado por nombre de yacimiento (se le pasa nombre y envia toda la info)
+    @GetMapping("/findSiteByNameWithJPQL/{name}")
+    Optional<Site> findSiteByNameWithJPQL(@PathVariable String name){
+        return siteService.findSiteByWithJPQL(name);
+    }
+
+    //registro filtrado por nombre de yacimiento (se le pasa nombre y envia toda la info) pero por INVERSION DE CONTROL
+    @GetMapping("/findSiteByName/{name}")
+    Optional<Site> findByName(@PathVariable String name){
+        return siteService.findByName(name);
+    }
+
+    //implementar metodo de busqueda ignorando cases
+    @GetMapping("/findSiteByNameIgnoreCase/{name}")
+    Optional<Site> findByNameIgnoreCase(@PathVariable String name){
+        return siteService.findByNameIgnoreCase(name);
     }
 }
