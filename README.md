@@ -22,15 +22,19 @@ Actualmente, el proyecto se encuentra utilizando las siguientes tecnologías:
 
 Clona el repositorio en tu máquina local:
 
-git clone https://github.com/tu-usuario/ArqueoBD.git
+``git clone https://github.com/tu-usuario/ArqueoBD.git``
+
 Navega al directorio del proyecto:
 
-cd ArqueoBD
+``cd ArqueoBD``
+
 Ejecuta la aplicación con Maven:
 
-mvn spring-boot:run
+``mvn spring-boot:run``
 
-Accede a la aplicación a través de tu navegador en http://localhost:8080.
+Accede a la aplicación a través de tu navegador en:  
+
+``http://localhost:8080``
 
 4. **Estructura del Proyecto**
 
