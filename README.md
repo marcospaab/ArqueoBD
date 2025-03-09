@@ -26,7 +26,7 @@ Actualmente, el proyecto se encuentra utilizando las siguientes tecnologías:
 
 Clona el repositorio en tu máquina local:
 
-``git clone https://github.com/tu-usuario/ArqueoBD.git``
+``git clone https://github.com/marcospaab/ArqueoBD.git``
 
 Navega al directorio del proyecto:
 
