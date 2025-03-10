@@ -31,6 +31,12 @@
 	</properties>
 	<dependencies>
 
+		<!-- DEPENDENCIA DE VALIDACIONES -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
 		<!-- se añade el lombok para importar librerias de datos -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
