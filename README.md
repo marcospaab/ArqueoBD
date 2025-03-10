@@ -1,57 +1,95 @@
 # **ArqueoBD - Gestión de Yacimientos Arqueológicos**
 
-ArqueoBD es una aplicación web diseñada para la gestión y administración de bases de datos de yacimientos arqueológicos. Permite almacenar, consultar y administrar información relevante sobre los yacimientos, lo que facilita la tarea de los investigadores y arqueólogos.
+ArqueoBD es una aplicación web diseñada para la gestión y administración de bases de datos de yacimientos arqueológicos. Permite almacenar, consultar y administrar información relevante sobre los yacimientos, facilitando el trabajo de investigadores y arqueólogos.
 
-**En construcción:** 🔨🔨 Este proyecto aún está en desarrollo. ¡Pronto más actualizaciones!
+## **Estado del Proyecto**
 
-1. **Tecnologías Utilizadas**
+**En desarrollo:** Actualmente se han implementado funcionalidades básicas para la gestión de yacimientos, incluyendo la integración con **PostgreSQL** como base de datos principal. Pronto se agregará la interfaz frontend con **Angular**.
 
-Actualmente, el proyecto se encuentra utilizando las siguientes tecnologías:
+---
 
-**Spring Boot:** Framework para el desarrollo de aplicaciones backend en Java.
+## **Tecnologías Utilizadas**
 
-**JPA (Java Persistence API):** Librería para la gestión de la persistencia de datos en la base de datos.
+El proyecto utiliza las siguientes tecnologías:
 
-**H2:** Base de datos en memoria para desarrollo y pruebas.
+### **Backend**
+- **Spring Boot:** Framework para el desarrollo de aplicaciones backend en Java.
+- **JPA (Java Persistence API):** Librería para la gestión de la persistencia de datos.
+- **PostgreSQL:** Base de datos utilizada en el entorno de producción.
+- **H2:** Base de datos en memoria para pruebas.
+- **Lombok:** Para reducir el código boilerplate en las entidades y servicios.
+- **Spring Validation:** Para validación de datos.
 
-2. **Futuras Mejoras**
+### **Frontend (Próximamente)**
+- **Angular:** Framework para la construcción de una interfaz de usuario interactiva y dinámica.
 
-**Frontend:** Se implementará con Angular para crear una interfaz de usuario interactiva y dinámica.
+---
 
-**Backend:** Se mantendrá con Spring Boot.
+## **Instalación y Ejecución**
 
-**Base de Datos:** En el futuro se migrará a PostgreSQL para un entorno de producción más robusto y escalable.
+### **Requisitos Previos**
+Antes de ejecutar el proyecto, asegúrate de tener instalado en tu sistema:
+- **Java 17 o superior**
+- **Maven**
+- **PostgreSQL** (con una base de datos creada llamada `bd_arqueobd`)
 
-3. **Instalación y Ejecución**
+### **Configuración de la Base de Datos**
+Asegúrate de configurar tu PostgreSQL con las siguientes credenciales en el archivo `application.properties`:
 
-Clona el repositorio en tu máquina local:
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:8081/bd_arqueobd
+spring.datasource.username=postgres
+spring.datasource.password=password
+spring.jpa.database=POSTGRESQL
+spring.jpa.show-sql=true
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=update
+```
 
-``git clone https://github.com/marcospaab/ArqueoBD.git``
+### **Clonar el repositorio**
+Ejecuta el siguiente comando:
 
-Navega al directorio del proyecto:
+```bash
+git clone https://github.com/marcospaab/ArqueoBD.git
+```
 
-``cd ArqueoBD``
+### **Ejecutar el Proyecto**
+Navega al directorio del proyecto y ejecuta:
 
-Ejecuta la aplicación con Maven:
+```bash
+cd ArqueoBD
+mvn spring-boot:run
+```
 
-``mvn spring-boot:run``
+Accede a la aplicación a través del navegador en:
 
-Accede a la aplicación a través de tu navegador en:  
+```
+http://localhost:8080
+```
 
-``http://localhost:8080``
+---
 
-4. **Estructura del Proyecto**
+## **Estructura del Proyecto**
 
-El proyecto está dividido en las siguientes secciones principales:
+El proyecto está organizado en las siguientes secciones:
 
-**Backend:** Maneja la lógica del servidor y la interacción con la base de datos.
+- **Backend:** Maneja la lógica del servidor y la interacción con la base de datos.
+- **Base de Datos:** Ahora utiliza **PostgreSQL** como base de datos principal y **H2** para pruebas.
+- **Frontend:** Se desarrollará con **Angular** en futuras actualizaciones.
 
-**Base de Datos:** Usa H2 en memoria para pruebas.
+---
 
-**Futuro Frontend:** Integrará Angular (próximamente).
+## **Futuras Mejoras**
 
-5. **Contacto**
+- **Implementación del frontend con Angular**
+- **Autenticación y autorización de usuarios**
+- **Mejoras en el sistema de búsqueda y filtrado de yacimientos**
+- **Optimización del rendimiento y seguridad**
 
+---
+
+## **Contacto**
 Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto:
 
-Email: marcos.padin@outlook.es
+📧 **Email:** marcos.padin@outlook.es
+

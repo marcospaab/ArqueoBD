@@ -31,6 +31,12 @@
 	</properties>
 	<dependencies>
 
+		<!-- permite la conexion con postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
 		<!-- DEPENDENCIA DE VALIDACIONES -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
