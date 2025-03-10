@@ -4,6 +4,7 @@ package com.arqueobd.arqueobdrf.controller;
 import com.arqueobd.arqueobdrf.entity.Site;
 import com.arqueobd.arqueobdrf.error.SiteNotFoundException;
 import com.arqueobd.arqueobdrf.service.SiteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +25,9 @@ public class SiteController {
     }
 
     //guardado de información
+    //AÑADIDO DE VALIDADOR CON @Valid
     @PostMapping("/saveSite")
-    public Site saveSite(@RequestBody Site site){
+    public Site saveSite(@Valid @RequestBody Site site){
         return siteService.saveSite(site);
     }
 
