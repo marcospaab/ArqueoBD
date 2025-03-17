@@ -1,0 +1,61 @@
+#DOCUMENTO YAML DE CONFIGURACION
+#SE ESTABLECEN DOS PERFILES, DEV Y QA
+#SE CONECTAN A DISTINTAS BASES DE DATOS
+#POR DEFECTO SE CONECTA A DEV
+#SE AÑADE TAMBIÉN PROD
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://localhost:8081/bd_arqueobd
+    username: postgres
+    password: password
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      platform: postgres
+
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    url: jdbc:postgresql://localhost:8081/bd_arqueobd_qa
+    username: postgres
+    password: password
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      platform: postgres
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:postgresql://localhost:8081/bd_arqueobd_prod
+    username: postgres
+    password: password
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      platform: postgres
