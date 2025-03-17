@@ -34,18 +34,14 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado en tu sistema:
 - **PostgreSQL** (con una base de datos creada llamada `bd_arqueobd`)
 
 ### **Configuración de la Base de Datos**
-Asegúrate de configurar tu PostgreSQL con las siguientes credenciales en el archivo `application.properties`:
 
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:8081/bd_arqueobd
-spring.datasource.username=postgres
-spring.datasource.password=password
-spring.jpa.database=POSTGRESQL
-spring.jpa.show-sql=true
-spring.jpa.generate-ddl=true
-spring.jpa.hibernate.ddl-auto=update
+Este proyecto soporta tres perfiles de configuración (`dev`, `qa`, `prod`). Cada perfil se conecta a una base de datos diferente. Puedes cambiar el perfil activo en el archivo `application.yaml`:
+
+```yaml
+spring:
+  profiles:
+    active: dev  # Puedes cambiar 'dev' por 'qa' o 'prod' según el entorno que necesites.
 ```
-
 ### **Clonar el repositorio**
 Ejecuta el siguiente comando:
 
@@ -86,6 +82,9 @@ El proyecto está organizado en las siguientes secciones:
 - **Mejoras en el sistema de búsqueda y filtrado de yacimientos**
 - **Optimización del rendimiento y seguridad**
 
+### **Lo Más Próximo**
+- **Aumento de la abstracción de la base de datos con tablas de campañas y piezas.**
+- **Organización de registros.**
 ---
 
 ## **Contacto**
