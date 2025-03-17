@@ -9,5 +9,4 @@ public class ArqueobdrfApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ArqueobdrfApplication.class, args);
 	}
-
 }

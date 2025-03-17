@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.arqueobd</groupId>
 	<artifactId>arqueobdrf</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>arqueobdrf</name>
 	<description>ArqueoBD</description>
 	<url/>
@@ -47,8 +47,8 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>1.18.30</version>
 		</dependency>
-
 		<!-- se añade el repositorio de maven para bd h2 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
