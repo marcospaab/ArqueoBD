@@ -48,4 +48,8 @@ public class Campaign {
     private Date endDate;
     //description
     private String description;
+
+    @Embedded //con esto incrusto storehouse en Campaign
+    private Storehouse storehouse;
+
 }
