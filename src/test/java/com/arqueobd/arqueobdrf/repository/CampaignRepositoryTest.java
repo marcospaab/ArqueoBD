@@ -28,12 +28,83 @@ class CampaignRepositoryTest {
     @Test
     public void saveCampaign(){
         Campaign campaign = Campaign.builder()
+                .campaignCode("SCQ2024")
                 .startDate(startDateTest)
                 .endDate(endDateTest)
                 .description("Campaña en el castro x de 2021, prueba de testing unitario")
                 .build();
         campaignRepository.save(campaign);
     }
+
+    @Test
+    public void saveMultipleCampaigns(){
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date startDate1, endDate1, startDate2, endDate2, startDate3, endDate3;
+
+        try {
+            startDate1 = sdf.parse("15-07-2022");
+            endDate1 = sdf.parse("30-08-2022");
+
+            startDate2 = sdf.parse("01-06-2023");
+            endDate2 = sdf.parse("20-07-2023");
+
+            startDate3 = sdf.parse("05-05-2024");
+            endDate3 = sdf.parse("10-06-2024");
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        Storehouse storehouse1 = Storehouse.builder()
+                .storehouseMainStreet("Praza Maior, 2, 27001")
+                .storehouseCity("Lugo")
+                .storehouseCCAA("Galicia")
+                .storehouseName("Museo Provincial de Lugo")
+                .build();
+
+        Storehouse storehouse2 = Storehouse.builder()
+                .storehouseMainStreet("Avenida da Coruña, 25, 15003")
+                .storehouseCity("A Coruña")
+                .storehouseCCAA("Galicia")
+                .storehouseName("Museo Arqueolóxico e Histórico da Coruña")
+                .build();
+
+        Storehouse storehouse3 = Storehouse.builder()
+                .storehouseMainStreet("Rúa do Hórreo, 61, 15702")
+                .storehouseCity("Santiago de Compostela")
+                .storehouseCCAA("Galicia")
+                .storehouseName("Museo do Pobo Galego")
+                .build();
+
+        Campaign campaign1 = Campaign.builder()
+                .campaignCode("LUG2022")
+                .startDate(startDate1)
+                .endDate(endDate1)
+                .description("Excavación en el Castro de Viladonga, campaña de verano 2022")
+                .storehouse(storehouse1)
+                .build();
+
+        Campaign campaign2 = Campaign.builder()
+                .campaignCode("COR2023")
+                .startDate(startDate2)
+                .endDate(endDate2)
+                .description("Intervención arqueológica en Torre de Hércules")
+                .storehouse(storehouse2)
+                .build();
+
+        Campaign campaign3 = Campaign.builder()
+                .campaignCode("SCQ2024")
+                .startDate(startDate3)
+                .endDate(endDate3)
+                .description("Excavación preventiva en la Praza do Obradoiro")
+                .storehouse(storehouse3)
+                .build();
+
+        campaignRepository.save(campaign1);
+        campaignRepository.save(campaign2);
+        campaignRepository.save(campaign3);
+    }
+
 
     @Test
     public void saveCampaignWithStorehouseEmbedded(){
@@ -45,6 +116,7 @@ class CampaignRepositoryTest {
                 .build();
 
         Campaign campaign = Campaign.builder()
+                .campaignCode("SAC025")
                 .startDate(startDateTest)
                 .endDate(endDateTest)
                 .description("Campaña en el castro x de 2021, prueba de testing unitario")
@@ -66,6 +138,31 @@ class CampaignRepositoryTest {
     public void findAllCampaigns(){
         List<Campaign> campaignList = campaignRepository.findAll();
         System.out.println("Campaigns = "+campaignList);
+    }
+
+    @Test
+    public void findAllCampaignsByCodeContaining(){
+        List<Campaign> campaignList = campaignRepository.findByCampaignCodeContaining("202");
+        System.out.println("Campaign List = "+campaignList);
+    }
+
+    @Test
+    public void findAllCampaignsStartDateNotNull(){
+        List<Campaign> campaignList = campaignRepository.findByStartDateNotNull();
+        System.out.println(campaignList);
+    }
+
+    //este test accede a las variables de la entidad embebida storehouse a través de campaign
+    @Test
+    public void findAllCampaignsByStorehouseName(){
+        List<Campaign>campaignList = campaignRepository.findByStorehouse_StorehouseName("Museo do Pobo Galego");
+        System.out.println("Depósitos en el Museo do Pobo Galego = " + campaignList);
+    }
+
+    @Test
+    public void findAllCampaignsByStorehouseNameContaining(){
+        List<Campaign>campaignList = campaignRepository.findByStorehouse_StorehouseNameContaining("Pobo");
+        System.out.println("Depósitos en el Museo do Pobo Galego = " + campaignList);
     }
 
 }
