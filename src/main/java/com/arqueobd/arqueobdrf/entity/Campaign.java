@@ -52,4 +52,10 @@ public class Campaign {
     @Embedded //con esto incrusto storehouse en Campaign
     private Storehouse storehouse;
 
+    @OneToOne //para mostrar relacion uno a uno
+    @JoinColumn( //se debe usar una FK para relacionar con la PK  de Director
+            name="director_id",
+            referencedColumnName = "directorId"
+    )
+    private Director director;
 }
