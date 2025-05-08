@@ -189,4 +189,9 @@ class CampaignRepositoryTest {
         Campaign campaign = campaignRepository.getCampaignByCampaignCodeNativeParam("COR2023");
         System.out.println(campaign);
     }
+
+    @Test
+    public void updateCampaignDescriptionByCampaignCode(){
+        campaignRepository.updateCampaignDescriptionByCampaignCode("Nova intervención arqueolóxica no Castro da Saceda. Limpeza superficial e preparación para o turismo.","SAC2021");
+    }
 }

@@ -1,7 +1,9 @@
 package com.arqueobd.arqueobdrf.repository;
 
 import com.arqueobd.arqueobdrf.entity.Campaign;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -46,5 +48,15 @@ public interface CampaignRepository extends JpaRepository<Campaign, Long> {
             nativeQuery = true
     )
     Campaign getCampaignByCampaignCodeNativeParam(@Param("campaignCode") String campaignCode);
+
+    //actualización de registros BBDD. Transactional permite el rollback si hay fallos en la transaccion y
+    // modifying marca que es algo que producirá cambios
+    @Transactional
+    @Modifying
+    @Query(
+            value="update tbl_campaign set description =?1 where campaign_code = ?2",
+            nativeQuery = true
+    )
+    void updateCampaignDescriptionByCampaignCode(String Description, String CampaignCode);
 
 }
