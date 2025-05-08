@@ -165,4 +165,28 @@ class CampaignRepositoryTest {
         System.out.println("Depósitos en el Museo do Pobo Galego = " + campaignList);
     }
 
+    @Test
+    public void getCampaignByCampaignCode(){
+        Campaign campaign = campaignRepository.getCampaignByCampaignCode("LUG2022");
+        System.out.println(campaign);
+    }
+
+    @Test
+    public void getCampaignDescriptionByCampaignCode(){
+        String campaignDescription = campaignRepository.getCampaignDescriptionByCampaignCode("LUG2022");
+        System.out.println(campaignDescription);
+    }
+
+    //test unitario consulta nativa
+    @Test
+    public void getCampaginByCampaignCodeNative(){
+        Campaign campaign = campaignRepository.getCampaignByCampaignCodeNative("COR2023");
+        System.out.println(campaign);
+    }
+
+    @Test
+    public void getCampaginByCampaignCodeNativeNamedParam(){
+        Campaign campaign = campaignRepository.getCampaignByCampaignCodeNativeParam("COR2023");
+        System.out.println(campaign);
+    }
 }
