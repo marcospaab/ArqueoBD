@@ -2,10 +2,7 @@ package com.arqueobd.arqueobdrf.entity;
 
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
@@ -15,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+//@ToString(exclude = "director") //esto sirve para excluir a la entidad director
 @Table( //permite cambiar datos sobre tablas y entidades
         name = "tbl_campaign",
         uniqueConstraints = @UniqueConstraint( //restricción para que el codigo de campaña sea unico
@@ -52,7 +50,10 @@ public class Campaign {
     @Embedded //con esto incrusto storehouse en Campaign
     private Storehouse storehouse;
 
-    @OneToOne //para mostrar relacion uno a uno
+    @OneToOne(
+            cascade = CascadeType.PERSIST,
+            fetch = FetchType.EAGER
+    ) //para mostrar relacion uno a uno
     @JoinColumn( //se debe usar una FK para relacionar con la PK  de Director
             name="director_id",
             referencedColumnName = "directorId"

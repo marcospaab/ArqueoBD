@@ -1,6 +1,7 @@
 package com.arqueobd.arqueobdrf.repository;
 
 import com.arqueobd.arqueobdrf.entity.Campaign;
+import com.arqueobd.arqueobdrf.entity.Director;
 import com.arqueobd.arqueobdrf.entity.Storehouse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +106,48 @@ class CampaignRepositoryTest {
         campaignRepository.save(campaign3);
     }
 
+    @Test
+    public void saveCampaignWithDirector(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date startDate1, endDate1;
+
+        try {
+            startDate1 = sdf.parse("18-10-2023");
+            endDate1 = sdf.parse("30-12-2023");
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        Storehouse storehouse = Storehouse.builder()
+                .storehouseMainStreet("Baixada a Chousa, 61, 36998")
+                .storehouseCity("Pontevedra")
+                .storehouseCCAA("Galicia")
+                .storehouseName("Museo Arqueológico de Pontevedra")
+                .build();
+
+        Director director = Director.builder()
+                .firstName("Fermín")
+                .lastName("Pérez Losada")
+                .build();
+
+        Campaign campaign = Campaign.builder()
+                .campaignCode("TRE2023")
+                .startDate(startDate1)
+                .endDate(endDate1)
+                .description("Excavación preventiva en la Praza do Obradoiro")
+                .storehouse(storehouse)
+                .director(director)
+                .build();
+
+        campaignRepository.save(campaign);
+    }
+
+    @Test
+    public void findAllCampaignsWithDirector(){
+        List<Campaign> campaignList = campaignRepository.findAll();
+        System.out.println("campaignList = "+campaignList);
+    }
 
     @Test
     public void saveCampaignWithStorehouseEmbedded(){
